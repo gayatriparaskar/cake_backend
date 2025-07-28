@@ -5,7 +5,7 @@ module.exports.createOrder = async(req,res) =>{
         const data = req.body;
         const newOrder = await userOrderModel(data);
     newOrder.save()
-    res.status(200).json(successResponse(200,"oreder is submited to owner",newOrder));
+    res.status(200).json(successResponse(200,"oreder is submited",newOrder));
     } catch (error) {
         res.status(500).json(errorResponse(500,"order is not submited",error.message));
     }
