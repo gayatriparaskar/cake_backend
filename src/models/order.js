@@ -7,7 +7,8 @@ const userOrderSchema = new mongoose.Schema({
     cakeType:{type:String},
     quantity:{type:Number},
     date:{type : Date},
-    message:{type:String}
+    message:{type:String},
+    address:{type:String},
 },{
   timestamps: true
 });

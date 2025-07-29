@@ -25,9 +25,11 @@ module.exports.getAllOrder = async(req,res) =>{
 module.exports.updateOrder= async (req,res)=>{
     try {
         const id = req.params.id;
-    const updateOrder = await userOrderModel.findByIdAndUpdate(id,{
+        const data= req.body;
+         const updateOrder = await userOrderModel.findByIdAndUpdate(id,data,{
+          new:true,
         runValidators:true,
-        new:true
+      
     })
     res.status(200).json(successResponse(200,"Order is updated sucessfully",updateOrder))
     } catch (error) {
@@ -39,8 +41,8 @@ module.exports.deleteOrder= async (req,res)=>{
     try {
         const id = req.params.id;
     const deleteOrder = await userOrderModel.findByIdAndDelete(id);
-    res.status(200).json(successResponse(200,"Order is updated sucessfully",deleteOrder))
+    res.status(200).json(successResponse(200,"Order is Deleted sucessfully",deleteOrder))
     } catch (error) {
-        res.status(500).json(errorResponse(500,"order is not updated",error.message));
+        res.status(500).json(errorResponse(500,"order is not Deleted",error.message));
     }
 }
