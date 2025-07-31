@@ -15,14 +15,10 @@ connectDB();
 
 
 app.get("/", async (req, res) => {
-    
-      console.log(res,"response");
-      
       res.status(200).json({
-        success: "Hello from the Bacry",
+        success: "Hello from the Bakery",
         message: "Server is running perfectly",
       });
-
 });
 app.use("/api/order",orderRouter);
 
